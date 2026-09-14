@@ -10,7 +10,7 @@ namespace TodoSucarnet.Data
 {
     public class TodoItemDatabase
     {
-        SQLiteAsyncConnection Database;
+        SQLiteAsyncConnection Database = null!;
         public TodoItemDatabase()
         {
         }

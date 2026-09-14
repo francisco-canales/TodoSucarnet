@@ -5,10 +5,9 @@ namespace TodoSucarnet.Views;
 [QueryProperty("Item", "Item")]
 public partial class TodoItemPage : ContentPage
 {
-    TodoItem item;
     public TodoItem Item
     {
-        get => BindingContext as TodoItem;
+        get => BindingContext as TodoItem ?? new TodoItem();
         set => BindingContext = value;
     }
     TodoItemDatabase database;
@@ -22,7 +21,7 @@ public partial class TodoItemPage : ContentPage
     {
         if (string.IsNullOrWhiteSpace(Item.Name))
         {
-            await DisplayAlert("Name Required", "Please enter a name for the todo item.", "OK");
+            await DisplayAlertAsync("Name Required", "Please enter a name for the todo item.", "OK");
             return;
         }
 
